@@ -23,10 +23,10 @@
             <input class = 'number' id='number9' type='button' value = '9'/>
             <input class = 'operator' id='clear' type='button' value = 'Clr'/>
             <input class = 'number'  id='number0' type='button' value = '0'/>
-            <input class = 'operator' type='button' value = '.'/>
-            <input class = 'operator' type='button' value = 'Ran'/>
-            <input class = 'operator' type='button' value = '%'/>
-            <input class = 'operator' type='button' value = 'SqRt'/>
+            <input class = 'operator' id = 'decimal' type='button' value = '.'/>
+            <input class = 'operator' id = 'random' type='button' value = 'Ran'/>
+            <input class = 'operator' id = 'percentage' type='button' value = '%'/>
+            <input class = 'operator' id= 'squareRoot' type='button' value = 'SqRt'/>
             
         </form>
         <form id ="sideKeys">
@@ -95,6 +95,11 @@
                  divOutput.innerText += 0;
         };
        });
+       document.getElementById('decimal').addEventListener('click', function(){
+          if(divOutput.innerText.length <=8){
+                 divOutput.innerText += '.';
+          };         
+       });
 //add clear button functionality
 document.getElementById('clear').addEventListener('click',function(){
         document.location.reload();
@@ -106,7 +111,7 @@ document.getElementById('plus').addEventListener('click',function(){
 //add equals button funct
 document.getElementById('equals').addEventListener('click',function(){
         b += divOutput.innerText;
-        divOutput.innerText = (Number(a) + Number(b)).toPrecision(7);
+        divOutput.innerText = (Number(a) + Number(b)).toString();
 })
 });
 //add minus button funct
@@ -116,7 +121,7 @@ document.getElementById('minus').addEventListener('click',function(){
 //add equals button funct
 document.getElementById('equals').addEventListener('click',function(){
         b += divOutput.innerText;
-        divOutput.innerText = (Number(a) - Number(b)).toPrecision(7);
+        divOutput.innerText = (Number(a) - Number(b)).toString();
 })
 });
 //add division button funct
@@ -126,7 +131,7 @@ document.getElementById('divide').addEventListener('click',function(){
 //add equals button funct
 document.getElementById('equals').addEventListener('click',function(){
         b += divOutput.innerText;
-        divOutput.innerText = (Number(a) / Number(b)).toPrecision(7);
+        divOutput.innerText = (Number(a) / Number(b)).toString();
 })
 });
 //add multiply button funct
@@ -136,10 +141,30 @@ document.getElementById('multiply').addEventListener('click',function(){
 //add equals button funct
 document.getElementById('equals').addEventListener('click',function(){
         b += divOutput.innerText;
-        divOutput.innerText = (Number(a) * Number(b)).toPrecision(7);
+        divOutput.innerText = (Number(a) * Number(b)).toString();
 })
 });
-      
+
+//random button function
+document.getElementById('random').addEventListener('click',function(){
+    var x = Math. floor(Math. random() * 256);
+    var y = Math. floor(Math. random() * 256);
+     var z = Math. floor(Math. random() * 256);
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    let container = document.getElementById('container');
+    container.style.backgroundColor = bgColor; 
+})
+
+//percentage button fuction
+document.getElementById('percentage').addEventListener('click',function(){
+        a += divOutput.innerText;
+        divOutput.innerText = (Number(a) / 100) .toString();
+});
+
+document.getElementById('squareRoot').addEventListener('click',function(){
+        a += divOutput.innerText;
+        divOutput.innerText = (Number(a) * Number(a)).toString();
+});
       
 
     </script>
