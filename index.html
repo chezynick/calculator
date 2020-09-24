@@ -131,8 +131,11 @@ document.getElementById('divide').addEventListener('click',function(){
 //add equals button funct
 document.getElementById('equals').addEventListener('click',function(){
         b += divOutput.innerText;
+        if(a == 0 || b == 0){
+            alert('flip you mutha flipper- dont you try to break my calculator')
+        } else {
         divOutput.innerText = (Number(a) / Number(b)).toString();
-})
+}})
 });
 //add multiply button funct
 document.getElementById('multiply').addEventListener('click',function(){
