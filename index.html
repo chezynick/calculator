@@ -21,10 +21,10 @@
             <input class = 'number' id='number7' type='button' value = '7'/>
             <input class = 'number' id='number8' type='button' value = '8'/>
             <input class = 'number' id='number9' type='button' value = '9'/>
-            <input class = 'operator' id='clear' type='button' value = 'Clr'/>
+            <input class = 'operator' id='clear' type='button' value = 'AC'/>
             <input class = 'number'  id='number0' type='button' value = '0'/>
             <input class = 'operator' id = 'decimal' type='button' value = '.'/>
-            <input class = 'operator' id = 'random' type='button' value = 'Ran'/>
+            <input class = 'operator' id = 'random' type='button' value = '??'/>
             <input class = 'operator' id = 'percentage' type='button' value = '%'/>
             <input class = 'operator' id= 'squareRoot' type='button' value = 'SqRt'/>
             
@@ -106,12 +106,15 @@ document.getElementById('clear').addEventListener('click',function(){
 })
 //add plus button funct
 document.getElementById('plus').addEventListener('click',function(){
-         a += divOutput.innerText;
+         a = a + Number(divOutput.innerText);
         divOutput.innerText = '';
+        console.log(a);
 //add equals button funct
 document.getElementById('equals').addEventListener('click',function(){
-        b += divOutput.innerText;
-        divOutput.innerText = (Number(a) + Number(b)).toString();
+         b = Number(b) + Number(divOutput.innerText);
+        // divOutput.innerText = (Number(a) + Number(b));
+        
+        divOutput.innerText = (Number(b) + Number(a));
 })
 });
 //add minus button funct
@@ -126,8 +129,9 @@ document.getElementById('equals').addEventListener('click',function(){
 });
 //add division button funct
 document.getElementById('divide').addEventListener('click',function(){
-         a += divOutput.innerText;
+         a += Number(divOutput.innerText);
         divOutput.innerText = '';
+       
 //add equals button funct
 document.getElementById('equals').addEventListener('click',function(){
         b += divOutput.innerText;
