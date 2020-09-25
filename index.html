@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="container">
-        <div id ='textArea' type= 'text' rows='1' columns='8' maxlength = '8'></div>
+        <div id ='textArea'  type= 'text'  rows='1' columns='8' maxlength = '8'></div>
         <form id ="mainKeys">
             <input class = 'number' id='number1' type='button' value = '1'/>
             <input class = 'number' id='number2' type='button' value = '2'/>
@@ -106,16 +106,16 @@ document.getElementById('clear').addEventListener('click',function(){
 })
 //add plus button funct
 document.getElementById('plus').addEventListener('click',function(){
-         a = a + Number(divOutput.innerText);
+         a += Number(divOutput.innerText);
         divOutput.innerText = '';
         console.log(a);
 //add equals button funct
-document.getElementById('equals').addEventListener('click',function(){
-         b = Number(b) + Number(divOutput.innerText);
-        // divOutput.innerText = (Number(a) + Number(b));
-        
-        divOutput.innerText = (Number(b) + Number(a));
-})
+document.getElementById('equals').addEventListener('click',plusfunction)
+function plusfunction(){        
+        let b = 0   
+        b += divOutput.innerText;
+        divOutput.innerText = (Number(b) + Number(a));   
+}
 });
 //add minus button funct
 document.getElementById('minus').addEventListener('click',function(){
@@ -124,7 +124,8 @@ document.getElementById('minus').addEventListener('click',function(){
 //add equals button funct
 document.getElementById('equals').addEventListener('click',function(){
         b += divOutput.innerText;
-        divOutput.innerText = (Number(a) - Number(b)).toString();
+        divOutput.innerText = (Number(a) - Number(b));
+       
 })
 });
 //add division button funct
@@ -147,8 +148,8 @@ document.getElementById('multiply').addEventListener('click',function(){
         divOutput.innerText = '';
 //add equals button funct
 document.getElementById('equals').addEventListener('click',function(){
-        b += divOutput.innerText;
-        divOutput.innerText = (Number(a) * Number(b)).toString();
+        b =  0 + Number(divOutput.innerText);
+        divOutput.innerText = (Number(a) * Number(b));
 })
 });
 
@@ -164,12 +165,13 @@ document.getElementById('random').addEventListener('click',function(){
 
 //percentage button fuction
 document.getElementById('percentage').addEventListener('click',function(){
-        a += divOutput.innerText;
+        a = divOutput.innerText;
         divOutput.innerText = (Number(a) / 100) .toString();
 });
 
+//add square root buttonfunction
 document.getElementById('squareRoot').addEventListener('click',function(){
-        a += divOutput.innerText;
+        a = divOutput.innerText;
         divOutput.innerText = (Number(a) * Number(a)).toString();
 });
       
