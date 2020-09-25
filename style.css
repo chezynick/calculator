@@ -52,7 +52,7 @@ input {border: darkslategrey 2px solid;}
       border-radius: 10px;color:rgb(36, 46, 46); align-items: center;padding-top:10px;}
 #mainKeys {display:grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
      justify-content:space-evenly;align-content: space-evenly; margin-left:5px; width:370px; height:490px; }
-.number {font-size:30px; display:flex; margin:auto;  width:80px; height:80px;justify-content: center;
+.number {font-size:30px; display:flex; margin:auto;  width:80px; height:80px;justify-content: center; align-items: center;
      background-color:rgb(102, 102, 101); border-radius: 5px;}
 #sideKeys {display:grid; grid-template-columns: 1fr;grid-template-rows: 1fr 1fr 1fr 1fr 1fr; width:115px; height:490px;}
 .operator {font-size:30px; display:flex; margin:auto; width:80px; height:80px; justify-content: center; align-items: center;
