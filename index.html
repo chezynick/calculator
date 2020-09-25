@@ -12,17 +12,17 @@
     <div id="container">
         <div id ='textArea'  type= 'text'  rows='1' columns='8' maxlength = '8'></div>
         <form id ="mainKeys">
-            <div class = 'number' id='number1' type='button' value = '1'>1</div>    
-            <div class = 'number' id='number2' type='button' value = '2'>2</div> 
-            <div class = 'number' id='number3' type='button' value = '3'>3</div> 
-            <div class = 'number' id='number4' type='button' value = '4'>4</div> 
-            <div class = 'number' id='number5' type='button' value = '5'>5</div> 
-            <div class = 'number' id='number6' type='button' value = '6'>6</div> 
-            <div class = 'number' id='number7' type='button' value = '7'>7</div> 
-            <div class = 'number' id='number8' type='button' value = '8'>8</div> 
-            <div class = 'number' id='number9' type='button' value = '9'>9</div> 
+            <div class = 'number' type='button' >1</div>    
+            <div class = 'number' type='button' >2</div> 
+            <div class = 'number' type='button' >3</div> 
+            <div class = 'number' type='button' >4</div> 
+            <div class = 'number' type='button' >5</div> 
+            <div class = 'number' type='button' >6</div> 
+            <div class = 'number' type='button' >7</div> 
+            <div class = 'number' type='button' >8</div> 
+            <div class = 'number' type='button' >9</div> 
             <input class = 'operator' id='clear' type='button' value = 'AC'/>
-            <div class = 'number'  id='number0' type='button' value = '0'>0</div> 
+            <div class = 'number' type='button'>0</div> 
             <input class = 'operator' id = 'decimal' type='button' value = '.'/>
             <input class = 'operator' id = 'random' type='button' value = '??'/>
             <input class = 'operator' id = 'percentage' type='button' value = '%'/>
@@ -44,13 +44,16 @@
     //add variables for sums
     let a = 0;
     let b = 0;
+
         //add number functions
+
       let numBut = document.querySelectorAll('.number');
       for(i=0;i <numBut.length;i++){
           numBut[i].addEventListener('click', function(){
               divOutput.innerText += this.innerHTML; 
           })
       }
+
 //add clear button functionality
 document.getElementById('clear').addEventListener('click',function(){
         document.location.reload();
