@@ -19,22 +19,22 @@
             <div class = 'number' type='button' >5</div> 
             <div class = 'number' type='button' >6</div> 
             <div class = 'number' type='button' >7</div> 
-            <div class = 'number' type='button' value = '8'>8</div> 
-            <div class = 'number' type='button' value = '9'>9</div> 
-            <input class = 'operator' id='clear' type='button' value = 'AC'/>
-            <div class = 'number'  id='number0' type='button' value = '0'>0</div> 
-            <input class = 'operator' id = 'decimal' type='button' value = '.'/>
-            <input class = 'operator' id = 'random' type='button' value = '??'/>
-            <input class = 'operator' id = 'percentage' type='button' value = '%'/>
-            <input class = 'operator' id= 'squareRoot' type='button' value = 'SqRt'/>
+            <div class = 'number' type='button' >8</div> 
+            <div class = 'number' type='button' >9</div> 
+            <div class = 'button' id='clear' type='button' value = 'AC'>AC</div>
+            <div   class = 'number'  id='number0' type='button' >0</div> 
+            <div class = 'number' id = 'decimal' type='button' >.</div>
+            <div  class = 'button'id = 'random' type='button' value = '??'>??</div>
+            <div class = 'button' id = 'percentage' type='button' value = '%'>%</div>
+            <div class = 'button' id= 'squareRoot' type='button' value = 'SqRt'>SqRt</div>
             
         </form>
         <form id ="sideKeys">
-            <input class = 'operator' type='button' id = 'plus' value = '+'/>
-            <input class = 'operator' type='button' id = 'minus' value = '-'/>
-            <input class = 'operator' type='button' id='divide' value = '/'/>
-            <input class = 'operator' type='button' id = 'multiply' value  = 'X'/>
-            <input class = 'operator' type='button' id='equals' value = '='/>
+            <div class = 'operator button' type='button' id = 'plus' value = '+'>+</div>
+            <div class = 'operator button' type='button' id = 'minus' value = '-'>-</div>
+            <div class = 'operator button' type='button' id='divide' value = '/'>/</div>
+            <div class = 'operator button' type='button' id = 'multiply' value  = 'X'>X</div>
+            <div class = 'button' type='button' id='equals' >=</div>
         </form>
     </div>
     <script>
@@ -51,62 +51,96 @@
       for(i=0;i <numBut.length;i++){
           numBut[i].addEventListener('click', function(){
               divOutput.innerText += this.innerHTML; 
-          })
-      }
+          });
+      };
 
-//add clear button functionality
-document.getElementById('clear').addEventListener('click',function(){
-        document.location.reload();
-})
+
 //add plus button funct
-document.getElementById('plus').addEventListener('click',function(){
-         a += Number(divOutput.innerText);
-        divOutput.innerText = '';
-        console.log(a);
-//add equals button funct
-document.getElementById('equals').addEventListener('click',plusfunction)
-function plusfunction(){        
-        let b = 0   
-        b += divOutput.innerText;
-        divOutput.innerText = (Number(b) + Number(a));   
-}
-});
-//add minus button funct
-document.getElementById('minus').addEventListener('click',function(){
-         a += divOutput.innerText;
-        divOutput.innerText = '';
-//add equals button funct
-document.getElementById('equals').addEventListener('click',function(){
-        b += divOutput.innerText;
-        divOutput.innerText = (Number(a) - Number(b));
+//create array to store numbers entered
+let sum = [];
+//createevent listener for all operator class buttons
+let operator = document.querySelectorAll('.operator');
+//loop through operator buttons for event listener
+      for(i=0;i<operator.length;i++){
+          operator[i].addEventListener('click', function(){
+//add conditional dependant upon sum array length
+    if(sum.length <1){              
+              sum.push (Number(divOutput.innerText));
+              divOutput.innerText = '';
+              sum.push (this.innerText);
+//add operator conditions
+    } else  {
+        if (sum[1] === '+'){
+            sum.push (Number(divOutput.innerText));
+            divOutput.innerText = '';
+            let result = sum[0] + sum[2];
+            sum = [];
+            sum.push (result);
+            sum.push (this.innerText);
+            console.log(sum[0]);
+    } else if (sum[1] === '-'){
+            sum.push (Number(divOutput.innerText));
+            divOutput.innerText = '';
+            let result = sum[0] - sum[2];
+            sum = [];
+            sum.push (result);
+            sum.push (this.innerText);
+            console.log(sum[0]);
+    } else if (sum[1] === 'X'){
+            sum.push (Number(divOutput.innerText));
+            divOutput.innerText = '';
+            let result = sum[0] * sum[2];
+            sum = [];
+            sum.push (result);
+            sum.push (this.innerText);
+            console.log(sum[0]);
+    } else if (sum[1] === '/'){
+            sum.push (Number(divOutput.innerText));
+            divOutput.innerText = '';
+            let result = sum[0] / sum[2];
+            sum = [];
+            sum.push (result);
+            sum.push (this.innerText);
+            console.log(sum[0]);
+            
+     
+    };
+    };     
+//add equals function
+    let finalResult = document.getElementById('equals').addEventListener('click', function() {
+        if (sum.length == 1){
+console.log(sum[0])
+        } else if (sum[1] === '+'){
+            sum.push (Number(divOutput.innerText));
+            let result = sum[0] + sum[2];
+            sum = [];
+            sum.push (result);
+            divOutput.innerText = sum[0];
+        } else if (sum[1] === '-'){
+            sum.push (Number(divOutput.innerText));
+            let result = sum[0] - sum[2];
+            sum = [];
+            sum.push (result);
+            divOutput.innerText = sum[0];
+        } else if (sum[1] === 'X'){
+            sum.push (Number(divOutput.innerText));
+            let result = sum[0] * sum[2];
+            sum = [];
+            sum.push (result);
+            divOutput.innerText = sum[0];
+        } else if (sum[1] === '/'){
+            sum.push (Number(divOutput.innerText));
+            let result = sum[0] / sum[2];
+            sum = [];
+            sum.push (result);
+            divOutput.innerText = sum[0];
+}             
+        
        
-})
-});
-//add division button funct
-document.getElementById('divide').addEventListener('click',function(){
-         a += Number(divOutput.innerText);
-        divOutput.innerText = '';
-       
-//add equals button funct
-document.getElementById('equals').addEventListener('click',function(){
-        b += divOutput.innerText;
-        if(a == 0 || b == 0){
-            alert('flip you mutha flipper- dont you try to break my calculator')
-        } else {
-        divOutput.innerText = (Number(a) / Number(b)).toString();
-}})
-});
-//add multiply button funct
-document.getElementById('multiply').addEventListener('click',function(){
-         a += divOutput.innerText;
-        divOutput.innerText = '';
-//add equals button funct
-document.getElementById('equals').addEventListener('click',function(){
-        b =  0 + Number(divOutput.innerText);
-        divOutput.innerText = (Number(a) * Number(b));
-})
-});
-
+    });   
+          });  
+      };     
+ //stand alone button functions       
 //random button function
 document.getElementById('random').addEventListener('click',function(){
     var x = Math. floor(Math. random() * 256);
@@ -115,12 +149,12 @@ document.getElementById('random').addEventListener('click',function(){
     var bgColor = "rgb(" + x + "," + y + "," + z + ")";
     let container = document.getElementById('container');
     container.style.backgroundColor = bgColor; 
-})
+});
 
 //percentage button fuction
 document.getElementById('percentage').addEventListener('click',function(){
         a = divOutput.innerText;
-        divOutput.innerText = (Number(a) / 100) .toString();
+        divOutput.innerText = (Number(a) / 100);
 });
 
 //add square root buttonfunction
@@ -128,8 +162,12 @@ document.getElementById('squareRoot').addEventListener('click',function(){
         a = divOutput.innerText;
         divOutput.innerText = (Number(a) * Number(a)).toString();
 });
-      
 
+//add clear button functionality
+document.getElementById('clear').addEventListener('click',function(){
+        document.location.reload();
+}); 
+          
     </script>
 </body>
 </html>

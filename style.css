@@ -55,5 +55,5 @@ input {border: darkslategrey 2px solid;}
 .number {font-size:30px; display:flex; margin:auto;  width:80px; height:80px;justify-content: center; align-items: center;
      background-color:rgb(102, 102, 101); border-radius: 5px;}
 #sideKeys {display:grid; grid-template-columns: 1fr;grid-template-rows: 1fr 1fr 1fr 1fr 1fr; width:115px; height:490px;}
-.operator {font-size:30px; display:flex; margin:auto; width:80px; height:80px; justify-content: center; align-items: center;
+.button {font-size:30px; display:flex; margin:auto; width:80px; height:80px; justify-content: center; align-items: center;
     background-color: rgb(238, 92, 24);border-radius: 5px;}
