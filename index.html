@@ -46,7 +46,7 @@
     let b = 0;
 
         //add number functions
-
+let sum = [];
       let numBut = document.querySelectorAll('.number');
       for(i=0;i <numBut.length;i++){
           numBut[i].addEventListener('click', function(){
@@ -55,14 +55,15 @@
       };
 //add plus button funct
 //create array to store numbers entered
-        let sum = [];
+        
 //createevent listener for all operator class buttons
         let operator = document.querySelectorAll('.operator');
 //loop through operator buttons for event listener
         for(i=0;i<operator.length;i++){
           operator[i].addEventListener('click', function(){
 //add conditional dependant upon sum array length
-        if(sum.length <1){              
+        if(sum.length <=1){    
+            sum = [];          
               sum.push (Number(divOutput.innerText));
               divOutput.innerText = '';
               sum.push (this.innerText);
