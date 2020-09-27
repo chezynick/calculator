@@ -117,9 +117,6 @@ console.log(sum[0])
             let result = sum[0] + sum[2];
             sum = [];
             sum.push (result); 
-            if (result.length >3){
-                console.log('too big')
-            }
             divOutput.innerText = sum[0];
         } else if (sum[1] === '-'){
             sum.push (Number(divOutput.innerText));
@@ -132,13 +129,13 @@ console.log(sum[0])
             let result = sum[0] * sum[2];
             sum = [];
             sum.push (result);
-            divOutput.innerText = sum[0];
+            divOutput.innerText = sum[0].toPrecision(8);
         } else if (sum[1] === '/'){
             sum.push (Number(divOutput.innerText));
             let result = sum[0] / sum[2];
             sum = [];
             sum.push (result);
-            divOutput.innerText = sum[0];
+            divOutput.innerText = sum[0].toPrecision(8);
             };              
             });   
             });  
