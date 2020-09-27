@@ -154,7 +154,7 @@ document.getElementById('random').addEventListener('click',function(){
 //percentage button fuction
 document.getElementById('percentage').addEventListener('click',function(){
         a = divOutput.innerText;
-        divOutput.innerText = (Number(a) / 100);
+        divOutput.innerText = (Number(a) / 100).toFixed(2);
 });
 
 //add square root buttonfunction
