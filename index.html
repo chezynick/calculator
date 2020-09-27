@@ -23,7 +23,7 @@
             <div class = 'number' type='button' >9</div> 
             <div class = 'button' id='clear' type='button' value = 'AC'>AC</div>
             <div   class = 'number'  id='number0' type='button' >0</div> 
-            <div class = 'number' id = 'decimal' type='button' >.</div>
+            <div class = 'button' id = 'decimal' type='button' >.</div>
             <div  class = 'button'id = 'random' type='button' value = '??'>??</div>
             <div class = 'button' id = 'percentage' type='button' value = '%'>%</div>
             <div class = 'button' id= 'squareRoot' type='button' value = 'SqRt'>SqRt</div>
@@ -50,7 +50,9 @@ let sum = [];
       let numBut = document.querySelectorAll('.number');
       for(i=0;i <numBut.length;i++){
           numBut[i].addEventListener('click', function(){
-              divOutput.innerText += this.innerHTML; 
+              if(divOutput.innerText.length <= 7){
+                  divOutput.innerText += this.innerHTML; 
+              };
           });
       };
 //add plus button funct
@@ -67,6 +69,7 @@ let sum = [];
               sum.push (Number(divOutput.innerText));
               divOutput.innerText = '';
               sum.push (this.innerText);
+              
 //add operator conditions
         } else  {
             if (sum[1] === '+'){
@@ -113,7 +116,10 @@ console.log(sum[0])
             sum.push (Number(divOutput.innerText));
             let result = sum[0] + sum[2];
             sum = [];
-            sum.push (result);
+            sum.push (result); 
+            if (result.length >3){
+                console.log('too big')
+            }
             divOutput.innerText = sum[0];
         } else if (sum[1] === '-'){
             sum.push (Number(divOutput.innerText));
@@ -164,6 +170,15 @@ document.getElementById('squareRoot').addEventListener('click',function(){
 document.getElementById('clear').addEventListener('click',function(){
         document.location.reload();
 }); 
+
+//add decimal button functionality
+document.getElementById('decimal').addEventListener('click', function(){
+    let ifDecimal = divOutput.innerText.lastIndexOf('.')
+//condition to stop more than 1 decimal being entered
+    if (ifDecimal === -1){
+        divOutput.innerText += '.'
+    };
+});
           
     </script>
 </body>
