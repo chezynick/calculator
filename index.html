@@ -50,7 +50,10 @@ let sum = [];
       let numBut = document.querySelectorAll('.number');
       for(i=0;i <numBut.length;i++){
           numBut[i].addEventListener('click', function(){
-              if(divOutput.innerText.length <= 7){
+              if(sum.length === 2){
+                  divOutput.innerText = '';
+                  divOutput.innerText += this.innerHTML;
+              } else if(divOutput.innerText.length <= 7){
                   divOutput.innerText += this.innerHTML; 
               };
           });
@@ -79,7 +82,7 @@ let sum = [];
             sum = [];
             sum.push (result);
             sum.push (this.innerText);
-            console.log(sum[0]);
+            divOutput.innerText = sum[0];
         } else if (sum[1] === '-'){
             sum.push (Number(divOutput.innerText));
             divOutput.innerText = '';
@@ -87,7 +90,7 @@ let sum = [];
             sum = [];
             sum.push (result);
             sum.push (this.innerText);
-            console.log(sum[0]);
+            divOutput.innerText = sum[0];
         } else if (sum[1] === 'X'){
             sum.push (Number(divOutput.innerText));
             divOutput.innerText = '';
@@ -95,7 +98,7 @@ let sum = [];
             sum = [];
             sum.push (result);
             sum.push (this.innerText);
-            console.log(sum[0]);
+            divOutput.innerText = sum[0];
         } else if (sum[1] === '/'){
             sum.push (Number(divOutput.innerText));
             divOutput.innerText = '';
@@ -103,7 +106,7 @@ let sum = [];
             sum = [];
             sum.push (result);
             sum.push (this.innerText);
-            console.log(sum[0]);
+            divOutput.innerText = sum[0];
             
      
         };
